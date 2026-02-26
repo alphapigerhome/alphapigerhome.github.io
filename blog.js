@@ -28,7 +28,14 @@ function setupNavigation() {
 // 加载文章列表
 async function loadPosts() {
     try {
-        // 获取 posts 目录下的所有 .md 文件
+        // 使用预加载的数据
+        if (window.posts && window.posts.length > 0) {
+            posts = window.posts;
+            displayPostsList();
+            return;
+        }
+        
+        // 备用方案：尝试从文件加载
         const response = await fetch('posts/index.json');
         if (response.ok) {
             const postsData = await response.json();

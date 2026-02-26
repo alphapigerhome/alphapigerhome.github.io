@@ -47,6 +47,32 @@
 
     <script src="blog.js"></script>
     <script>
+        // 直接嵌入文章数据，避免 GitHub Pages 的 CORS 问题
+        const postsData = [
+            {
+                "filename": "first-post.md",
+                "title": "我的第一篇博客",
+                "date": "2026-02-26",
+                "excerpt": "这是我的第一篇博客文章。这个博客基于 GitHub Pages 和 Giscus 构建，非常简洁。",
+                "content": "# 欢迎来到我的博客\n\n这是我的第一篇博客文章。这个博客基于 GitHub Pages 和 Giscus 构建，非常简洁。\n\n## 博客特性\n\n- **简洁设计**：没有复杂的现代化界面，专注于内容\n- **Markdown 支持**：可以直接用 Markdown 写作\n- **评论功能**：集成 Giscus 评论系统\n- **GitHub Pages**：免费托管，自动部署\n\n## 如何使用\n\n1. 在 `posts` 目录下创建 `.md` 文件\n2. 使用 YAML front matter 定义标题和日期\n3. 推送到 GitHub 仓库即可自动发布\n\n## 代码示例\n\n```javascript\nfunction hello() {\n    console.log(\"Hello, World!\");\n}\n```\n\n## 链接和引用\n\n这是一个[链接示例](https://github.com)。\n\n> 这是一个引用块，可以用来强调重要内容。\n\n## 列表\n\n### 无序列表\n- 项目一\n- 项目二\n- 项目三\n\n### 有序列表\n1. 第一步\n2. 第二步\n3. 第三步\n\n感谢您的阅读！"
+            },
+            {
+                "filename": "hello-world.md",
+                "title": "Hello World",
+                "date": "2026-02-25",
+                "excerpt": "每个程序员的旅程都从 Hello, World! 开始。这篇文章介绍了为什么选择 GitHub Pages 和 Markdown 的优势。",
+                "content": "# Hello World\n\n## 开始编程之旅\n\n每个程序员的旅程都从 \"Hello, World!\" 开始。\n\n```python\nprint(\"Hello, World!\")\n```\n\n## 为什么选择 GitHub Pages\n\nGitHub Pages 是一个很好的选择：\n\n1. **免费**：完全免费托管\n2. **简单**：只需要 HTML/CSS/JS\n3. **版本控制**：Git 管理所有内容\n4. **自动化**：推送即发布\n\n## Markdown 的优势\n\n使用 Markdown 写作有很多好处：\n\n- **语法简单**：易于学习和使用\n- **专注内容**：不被复杂的格式干扰\n- **广泛支持**：几乎所有平台都支持\n- **可读性强**：纯文本格式，随时可读\n\n## 总结\n\n这个博客系统虽然简单，但功能完整。如果你也在寻找一个简洁的博客解决方案，希望这个项目能给你一些启发。"
+            }
+        ];
+        
+        // 初始化博客
+        document.addEventListener('DOMContentLoaded', function() {
+            window.posts = postsData;
+            loadPosts();
+            setupNavigation();
+        });
+    </script>
+    <script>
         // Giscus 配置
         function loadGiscus() {
             const script = document.createElement('script');
