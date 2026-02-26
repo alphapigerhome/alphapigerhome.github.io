@@ -182,11 +182,6 @@ async function loadPost(filename) {
         displayPost();
         showContent();
         
-        // 加载评论
-        setTimeout(() => {
-            loadGiscus();
-        }, 100);
-        
     } catch (error) {
         console.error('加载文章失败:', error);
         alert('文章加载失败');
@@ -240,11 +235,6 @@ function hideAllSections() {
     document.getElementById('posts').style.display = 'none';
     document.getElementById('content').style.display = 'none';
     document.getElementById('about').style.display = 'none';
-}
-
-function backToList() {
-    showPostsList();
-    currentPost = null;
 }
 
 // 处理浏览器前进后退

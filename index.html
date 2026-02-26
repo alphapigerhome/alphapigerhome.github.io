@@ -29,15 +29,28 @@
                 <!-- 文章内容将在这里显示 -->
             </article>
             <div id="comments">
-                <!-- Giscus 评论将在这里显示 -->
+                <!-- Giscus 评论 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="alphapigerhome/alphapigerhome.github.io"
+                        data-repo-id="R_kgDORZO8dA"
+                        data-category-id="DIC_kwDORZO8dM4C3Pax"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                        async>
+                </script>
             </div>
-            <button onclick="backToList()">返回列表</button>
         </section>
 
         <section id="about" style="display: none;">
             <h2>关于我</h2>
             <p>这是一个简洁的个人博客，基于 GitHub Pages 和 Giscus 构建。</p>
-            <button onclick="backToList()">返回列表</button>
         </section>
     </main>
 
@@ -73,30 +86,6 @@
             loadPosts();
             setupNavigation();
         });
-    </script>
-    <script>
-        // Giscus 配置
-        function loadGiscus() {
-            const script = document.createElement('script');
-            script.src = 'https://giscus.app/client.js';
-            script.setAttribute('data-repo', 'alphapigerhome/alphapigerhome.github.io');
-            script.setAttribute('data-repo-id', 'R_kgDORZO8dA');
-            script.setAttribute('data-category-id', 'DIC_kwDORZO8dM4C3Pax');
-            script.setAttribute('data-mapping', 'pathname');
-            script.setAttribute('data-strict', '0');
-            script.setAttribute('data-reactions-enabled', '1');
-            script.setAttribute('data-emit-metadata', '0');
-            script.setAttribute('data-input-position', 'top');
-            script.setAttribute('data-theme', 'preferred_color_scheme');
-            script.setAttribute('data-lang', 'zh-CN');
-            script.setAttribute('data-loading', 'lazy');
-            script.setAttribute('crossorigin', 'anonymous');
-            script.async = true;
-            
-            const commentsDiv = document.getElementById('comments');
-            commentsDiv.innerHTML = '';
-            commentsDiv.appendChild(script);
-        }
     </script>
 </body>
 </html>
