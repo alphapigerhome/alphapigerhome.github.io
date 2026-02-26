@@ -6,7 +6,21 @@ let currentPost = null;
 document.addEventListener('DOMContentLoaded', function() {
     loadPosts();
     setupNavigation();
+    handleInitialRoute();
 });
+
+// 处理初始路由
+function handleInitialRoute() {
+    const hash = window.location.hash.substring(1);
+    if (hash && hash.startsWith('post-')) {
+        const filename = hash.replace('post-', '');
+        loadPost(filename);
+    } else if (hash === 'about') {
+        showAbout();
+    } else {
+        showPostsList();
+    }
+}
 
 // 设置导航
 function setupNavigation() {
@@ -182,6 +196,9 @@ async function loadPost(filename) {
         displayPost();
         showContent();
         
+        // 更新 URL hash
+        window.location.hash = `post-${filename}`;
+        
     } catch (error) {
         console.error('加载文章失败:', error);
         alert('文章加载失败');
@@ -219,6 +236,7 @@ function formatDate(dateString) {
 function showPostsList() {
     hideAllSections();
     document.getElementById('posts').style.display = 'block';
+    window.location.hash = '';
 }
 
 function showContent() {
@@ -229,6 +247,7 @@ function showContent() {
 function showAbout() {
     hideAllSections();
     document.getElementById('about').style.display = 'block';
+    window.location.hash = 'about';
 }
 
 function hideAllSections() {
@@ -237,11 +256,11 @@ function hideAllSections() {
     document.getElementById('about').style.display = 'none';
 }
 
-// 处理浏览器前进后退
+// 处理浏览器前进后退和 hash 变化
+window.addEventListener('hashchange', function() {
+    handleInitialRoute();
+});
+
 window.addEventListener('popstate', function(event) {
-    if (event.state && event.state.post) {
-        loadPost(event.state.post);
-    } else {
-        showPostsList();
-    }
+    handleInitialRoute();
 });
