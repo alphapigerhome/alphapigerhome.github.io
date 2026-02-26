@@ -29,16 +29,19 @@
                 <!-- 文章内容将在这里显示 -->
             </article>
             <div id="comments">
-                <!-- Twikoo 评论系统 -->
-                <div id="tcomment"></div>
-                <script src="https://cdn.staticfile.org/twikoo/1.6.39/twikoo.all.min.js"></script>
+                <!-- Artalk 评论系统 -->
+                <div id="artalk"></div>
+                <script src="https://unpkg.com/artalk@2.8.3/dist/Artalk.js"></script>
                 <script>
-                    twikoo.init({
-                        envId: 'YOUR_VERCEL_APP_ID', // 你的 Vercel 部署后的环境 ID
-                        el: '#tcomment',
-                        region: 'ap-guangzhou', // 可选：区域
-                        path: window.location.pathname
-                    })
+                    new Artalk({
+                        el: '#artalk',
+                        pageKey: window.location.pathname,
+                        pageTitle: document.title,
+                        server: 'https://artalk-demo.pipecraft.net', // Artalk 公共服务
+                        site: 'alphapiger-blog', // 你的站点名称
+                        darkMode: 'auto',
+                        locale: 'zh-CN'
+                    });
                 </script>
                 <p style="font-size: 12px; color: #666; margin-top: 10px;">
                     💬 支持匿名评论，填写昵称和邮箱即可
