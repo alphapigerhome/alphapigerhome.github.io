@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphapiger's Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Alphapiger's Blog</a></h1>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="#about">关于</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="posts">
+            <h2>文章列表</h2>
+            <div id="posts-list">
+                <!-- 文章列表将通过 JavaScript 动态加载 -->
+            </div>
+        </section>
+
+        <section id="content" style="display: none;">
+            <article id="article-content">
+                <!-- 文章内容将在这里显示 -->
+            </article>
+            <div id="comments">
+                <!-- Giscus 评论将在这里显示 -->
+            </div>
+            <button onclick="backToList()">返回列表</button>
+        </section>
+
+        <section id="about" style="display: none;">
+            <h2>关于我</h2>
+            <p>这是一个简洁的个人博客，基于 GitHub Pages 和 Giscus 构建。</p>
+            <button onclick="backToList()">返回列表</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Alphapiger. Powered by GitHub Pages.</p>
+    </footer>
+
+    <script src="blog.js"></script>
+    <script>
+        // Giscus 配置
+        function loadGiscus() {
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'alphapigerhome/alphapigerhome.github.io');
+            script.setAttribute('data-repo-id', 'R_kgDOXXXXXXXX'); // 需要替换为实际的 repo-id
+            script.setAttribute('data-category', 'Announcements');
+            script.setAttribute('data-category-id', 'DIC_kwDOXXXXXXXX'); // 需要替换为实际的 category-id
+            script.setAttribute('data-mapping', 'pathname');
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'light');
+            script.setAttribute('data-lang', 'zh-CN');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
+            
+            const commentsDiv = document.getElementById('comments');
+            commentsDiv.innerHTML = '';
+            commentsDiv.appendChild(script);
+        }
+    </script>
+</body>
+</html>
