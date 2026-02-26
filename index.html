@@ -29,23 +29,15 @@
                 <!-- 文章内容将在这里显示 -->
             </article>
             <div id="comments">
-                <!-- Valine 评论系统 -->
-                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-                <div id="vcomments"></div>
+                <!-- Twikoo 评论系统 -->
+                <div id="tcomment"></div>
+                <script src="https://cdn.staticfile.org/twikoo/1.6.39/twikoo.all.min.js"></script>
                 <script>
-                    new Valine({
-                        el: '#vcomments',
-                        appId: 'YOUR_APP_ID', // 替换为你的 LeanCloud App ID
-                        appKey: 'YOUR_APP_KEY', // 替换为你的 LeanCloud App Key
-                        placeholder: '说点什么吧...',
-                        avatar: 'mp',
-                        meta: ['nick', 'mail'],
-                        pageSize: 10,
-                        lang: 'zh-CN',
-                        recordIP: false,
-                        enableQQ: false,
-                        requiredFields: ['nick'],
-                        visitor: false
+                    twikoo.init({
+                        envId: 'YOUR_VERCEL_APP_ID', // 你的 Vercel 部署后的环境 ID
+                        el: '#tcomment',
+                        region: 'ap-guangzhou', // 可选：区域
+                        path: window.location.pathname
                     })
                 </script>
                 <p style="font-size: 12px; color: #666; margin-top: 10px;">
