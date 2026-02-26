@@ -35,19 +35,14 @@ async function loadPosts() {
             return;
         }
         
-        // 备用方案：尝试从文件加载
-        const response = await fetch('posts/index.json');
-        if (response.ok) {
-            const postsData = await response.json();
-            posts = postsData;
-            displayPostsList();
-        } else {
-            // 如果没有 index.json，尝试直接加载文章
-            await loadPostsDirectly();
-        }
+        // 如果没有预加载数据，显示空列表
+        posts = [];
+        displayPostsList();
+        
     } catch (error) {
         console.error('加载文章列表失败:', error);
-        await loadPostsDirectly();
+        posts = [];
+        displayPostsList();
     }
 }
 

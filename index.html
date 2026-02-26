@@ -65,9 +65,11 @@
             }
         ];
         
+        // 立即设置文章数据，不等待 DOMContentLoaded
+        window.posts = postsData;
+        
         // 初始化博客
         document.addEventListener('DOMContentLoaded', function() {
-            window.posts = postsData;
             loadPosts();
             setupNavigation();
         });
