@@ -1,12 +1,12 @@
 # Alphapiger's Blog
 
-一个基于 GitHub Pages 和 Valine 的简洁个人博客。
+一个基于 GitHub Pages 和 Twikoo（Netlify 后端）的简洁个人博客。
 
 ## 特性
 
 - **简洁设计**：没有复杂的现代化界面，专注于内容
 - **Markdown 支持**：直接用 Markdown 写作
-- **评论功能**：集成 Valine 评论系统，支持匿名评论
+- **评论功能**：集成 Twikoo 评论系统，支持匿名评论与邮箱通知
 - **GitHub Pages**：免费托管，自动部署
 
 ## 如何添加文章
@@ -39,19 +39,20 @@ date: "2026-02-26"
 └── README.md           # 说明文档
 ```
 
-## 配置 Valine 评论
+## 配置 Twikoo 评论（Netlify）
 
-1. 访问 [LeanCloud](https://www.leancloud.cn/) 注册账号
-2. 创建应用（开发版免费）
-3. 在应用设置中获取 App ID 和 App Key
-4. 在 `index.html` 中替换 `YOUR_APP_ID` 和 `YOUR_APP_KEY`
+1. Fork [Twikoo 仓库](https://github.com/imaegoo/twikoo)。
+2. 访问 [Netlify](https://app.netlify.com/start) → Import an existing project → 选择 Fork 后的仓库。
+3. Build command 填 `npm run build`，Publish directory 填 `dist`，保存并开始部署。
+4. 部署完成后记录 Netlify 生成的域名，例如 `https://euphonious-paprenjak-45e41e.netlify.app`。
+5. 在 `index.html` 中将 `twikoo.init` 的 `envId` 替换为你的 Netlify 地址。
 
-## Valine 评论特性
+## Twikoo 评论特性
 
 - **匿名评论**：无需注册，填写昵称即可评论
 - **邮箱支持**：可选填写邮箱，用于接收回复通知
 - **无广告**：完全干净的评论体验
-- **数据安全**：存储在 LeanCloud，支持数据导出
+- **数据可控**：后端运行在你自己的 Netlify 站点，可随时迁移备份
 
 ## 部署
 

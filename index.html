@@ -29,18 +29,15 @@
                 <!-- 文章内容将在这里显示 -->
             </article>
             <div id="comments">
-                <!-- Artalk 评论系统（公共服，零配置） -->
-                <div id="artalk"></div>
-                <script src="https://unpkg.com/artalk@2.8.3/dist/Artalk.js"></script>
+                <!-- Twikoo 评论系统（Netlify 部署） -->
+                <div id="tcomment"></div>
+                <script src="https://cdn.staticfile.org/twikoo/1.6.39/twikoo.all.min.js"></script>
                 <script>
-                    new Artalk({
-                        el: '#artalk',
-                        pageKey: window.location.pathname,
-                        pageTitle: document.title,
-                        server: 'https://artalk-demo.pipecraft.net', // Artalk 公共服务
-                        site: 'alphapiger-blog', // 你的站点名称
-                        darkMode: 'auto',
-                        locale: 'zh-CN'
+                    twikoo.init({
+                        envId: 'https://euphonious-paprenjak-45e41e.netlify.app',
+                        el: '#tcomment',
+                        region: 'ap-shanghai',
+                        path: window.location.pathname
                     });
                 </script>
                 <p style="font-size: 12px; color: #666; margin-top: 10px;">
