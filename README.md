@@ -1,12 +1,12 @@
 # Alphapiger's Blog
 
-一个基于 GitHub Pages 和 Giscus 的简洁个人博客。
+一个基于 GitHub Pages 和 Valine 的简洁个人博客。
 
 ## 特性
 
 - **简洁设计**：没有复杂的现代化界面，专注于内容
 - **Markdown 支持**：直接用 Markdown 写作
-- **评论功能**：集成 Giscus 评论系统
+- **评论功能**：集成 Valine 评论系统，支持匿名评论
 - **GitHub Pages**：免费托管，自动部署
 
 ## 如何添加文章
@@ -34,17 +34,24 @@ date: "2026-02-26"
 ├── style.css           # 样式文件
 ├── blog.js             # 博客功能
 ├── posts/              # 文章目录
-│   ├── index.json      # 文章索引
 │   ├── first-post.md   # 示例文章
 │   └── hello-world.md  # 示例文章
 └── README.md           # 说明文档
 ```
 
-## 配置 Giscus
+## 配置 Valine 评论
 
-1. 访问 [Giscus](https://giscus.app/) 
-2. 配置你的仓库
-3. 替换 `index.html` 中的 `data-repo-id` 和 `data-category-id`
+1. 访问 [LeanCloud](https://www.leancloud.cn/) 注册账号
+2. 创建应用（开发版免费）
+3. 在应用设置中获取 App ID 和 App Key
+4. 在 `index.html` 中替换 `YOUR_APP_ID` 和 `YOUR_APP_KEY`
+
+## Valine 评论特性
+
+- **匿名评论**：无需注册，填写昵称即可评论
+- **邮箱支持**：可选填写邮箱，用于接收回复通知
+- **无广告**：完全干净的评论体验
+- **数据安全**：存储在 LeanCloud，支持数据导出
 
 ## 部署
 

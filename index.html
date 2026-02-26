@@ -29,24 +29,27 @@
                 <!-- 文章内容将在这里显示 -->
             </article>
             <div id="comments">
-                <!-- Giscus 评论 -->
-                <script src="https://giscus.app/client.js"
-                        data-repo="alphapigerhome/alphapigerhome.github.io"
-                        data-repo-id="R_kgDORZO8dA"
-                        data-category-id="DIC_kwDORZO8dM4C3Pax"
-                        data-mapping="pathname"
-                        data-strict="0"
-                        data-reactions-enabled="1"
-                        data-emit-metadata="0"
-                        data-input-position="top"
-                        data-theme="preferred_color_scheme"
-                        data-lang="zh-CN"
-                        data-loading="lazy"
-                        crossorigin="anonymous"
-                        async>
+                <!-- Valine 评论系统 -->
+                <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+                <div id="vcomments"></div>
+                <script>
+                    new Valine({
+                        el: '#vcomments',
+                        appId: 'YOUR_APP_ID', // 替换为你的 LeanCloud App ID
+                        appKey: 'YOUR_APP_KEY', // 替换为你的 LeanCloud App Key
+                        placeholder: '说点什么吧...',
+                        avatar: 'mp',
+                        meta: ['nick', 'mail'],
+                        pageSize: 10,
+                        lang: 'zh-CN',
+                        recordIP: false,
+                        enableQQ: false,
+                        requiredFields: ['nick'],
+                        visitor: false
+                    })
                 </script>
                 <p style="font-size: 12px; color: #666; margin-top: 10px;">
-                    💬 使用 GitHub 账号登录评论，或选择匿名评论
+                    💬 支持匿名评论，填写昵称和邮箱即可
                 </p>
             </div>
         </section>
