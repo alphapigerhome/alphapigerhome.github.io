@@ -1,12 +1,12 @@
 # Alphapiger's Blog
 
-一个基于 GitHub Pages 和 Twikoo（Netlify 后端）的简洁个人博客。
+一个基于 GitHub Pages 和 Giscus 的简洁个人博客。
 
 ## 特性
 
 - **简洁设计**：没有复杂的现代化界面，专注于内容
 - **Markdown 支持**：直接用 Markdown 写作
-- **评论功能**：集成 Twikoo 评论系统，要求填写昵称和邮箱并支持通知
+- **评论功能**：集成 Giscus 评论系统，支持 GitHub 账号登录评论
 - **GitHub Pages**：免费托管，自动部署
 
 ## 如何添加文章
@@ -39,20 +39,18 @@ date: "2026-02-26"
 └── README.md           # 说明文档
 ```
 
-## 配置 Twikoo 评论（Netlify）
+## 配置 Giscus 评论
 
-1. Fork [Twikoo 仓库](https://github.com/imaegoo/twikoo)。
-2. 访问 [Netlify](https://app.netlify.com/start) → Import an existing project → 选择 Fork 后的仓库。
-3. Build command 填 `npm run build`，Publish directory 填 `dist`，保存并开始部署。
-4. 部署完成后记录 Netlify 生成的域名，例如 `https://euphonious-paprenjak-45e41e.netlify.app`。
-5. 在 `index.html` 中将 `twikoo.init` 的 `envId` 替换为你的 Netlify 地址。
+1. 访问 [giscus.app](https://giscus.app) 并授予 GitHub Discussions 权限。
+2. 选择评论仓库（当前为 `alphapigerhome/alphapigerhome.github.io`），并生成 `data-repo-id` 与 `data-category-id`。
+3. 将生成的脚本嵌入 `index.html` 的评论区域，或直接复用当前配置。
 
-## Twikoo 评论特性
+## Giscus 评论特性
 
-- **实名提醒**：评论必须填写昵称与邮箱，便于通知和防垃圾
-- **邮箱支持**：填写邮箱后可接收回复通知
-- **无广告**：完全干净的评论体验
-- **数据可控**：后端运行在你自己的 Netlify 站点，可随时迁移备份
+- **GitHub 登录**：依赖 GitHub Discussions，天然防垃圾
+- **表情 & Markdown**：继承 GitHub 的互动体验
+- **无后台维护**：无需额外服务器或数据库
+- **自动同步**：评论即 Discussions，便于管理与备份
 
 ## 部署
 

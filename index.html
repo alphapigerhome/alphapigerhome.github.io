@@ -29,27 +29,31 @@
                 <!-- 文章内容将在这里显示 -->
             </article>
             <div id="comments">
-                <!-- Twikoo 评论系统（Netlify 部署） -->
-                <div id="tcomment"></div>
-                <script src="https://cdn.staticfile.org/twikoo/1.6.39/twikoo.all.min.js"></script>
-                <script>
-                    twikoo.init({
-                        envId: 'https://euphonious-paprenjak-45e41e.netlify.app',
-                        el: '#tcomment',
-                        region: 'ap-shanghai',
-                        path: window.location.pathname,
-                        requiredFields: ['nick', 'mail']
-                    });
+                <!-- Giscus 评论系统 -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="alphapigerhome/alphapigerhome.github.io"
+                        data-repo-id="R_kgDORZO8dA"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDORZO8dM4C3Pax"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="preferred_color_scheme"
+                        data-lang="zh-CN"
+                        crossorigin="anonymous"
+                        async>
                 </script>
                 <p style="font-size: 12px; color: #666; margin-top: 10px;">
-                    💬 支持匿名评论，填写昵称和邮箱即可
+                    💬 评论由 Giscus 驱动，需使用 GitHub 账号登录
                 </p>
             </div>
         </section>
 
         <section id="about" style="display: none;">
             <h2>关于我</h2>
-            <p>这是一个简洁的个人博客，基于 GitHub Pages 和 Twikoo 构建。</p>
+            <p>这是一个简洁的个人博客，基于 GitHub Pages 和 Giscus 评论系统。</p>
         </section>
     </main>
 
